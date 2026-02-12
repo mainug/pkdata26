@@ -1,3 +1,5 @@
+[GitHub Pages](https://mainug.github.io/pkdata26/)
+
 # 파이썬으로 빅데이터 분석하기 기초
 
 ## 파이썬 함수까지 작성중
@@ -5,5 +7,3 @@
 - 함수
 
 ## 클래스
-
-[GitHub Pages](https://mainug.github.io/pkdata26/)
