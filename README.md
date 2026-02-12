@@ -6,4 +6,4 @@
 
 ## 클래스
 
-[GitHub Pages]: https://mainug.github.io/pkdata26/
+[GitHub Pages](https://mainug.github.io/pkdata26/)
