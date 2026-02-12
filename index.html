@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>파일 목록</title>
+  <title>프로젝트 파일 목록</title>
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -40,38 +40,62 @@
       text-decoration: underline;
       color: #1c5980;
     }
-    @media (max-width: 480px) {
-      body {
-        margin: 20px;
-        padding: 15px;
-      }
-      li {
-        padding: 10px 8px;
-        font-size: 14px;
-      }
-      h1 {
-        font-size: 1.5rem;
-      }
+    .loading {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 1.2rem;
+      color: #777;
     }
   </style>
 </head>
 <body>
   <h1>프로젝트 파일 목록</h1>
-  <ul>
-    <li><a href="btc.py" target="_blank">btc.py</a></li>
-    <li><a href="btc_usd.py" target="_blank">btc_usd.py</a></li>
-    <li><a href="disp.py" target="_blank">disp.py</a></li>
-    <li><a href="func1.py" target="_blank">func1.py</a></li>
-    <li><a href="func2.py" target="_blank">func2.py</a></li>
-    <li><a href="jupy.sh" target="_blank">jupy.sh</a></li>
-    <li><a href="ps01.ipynb" target="_blank">ps01.ipynb</a></li>
-    <li><a href="py01_파이썬기초자료형(완료).ipynb" target="_blank">py01_파이썬기초자료형(완료).ipynb</a></li>
-    <li><a href="py02_주요자료형(완료).ipynb" target="_blank">py02_주요자료형(완료).ipynb</a></li>
-    <li><a href="py03_제어문(완료).ipynb" target="_blank">py03_제어문(완료).ipynb</a></li>
-    <li><a href="py04_함수.ipynb" target="_blank">py04_함수.ipynb</a></li>
-    <li><a href="test.py" target="_blank">test.py</a></li>
-    <li><a href="test.txt" target="_blank">test.txt</a></li>
-    <li><a href="web.py" target="_blank">web.py</a></li>
-  </ul>
+  <div id="file-list">
+    <p class="loading">파일 목록을 불러오는 중입니다...</p>
+  </div>
+
+  <script>
+    // GitHub 저장소 정보 수정하세요
+    const owner = 'mainug'; // 예: GitHub 사용자명
+    const repo = 'pkdata26'; // 예: 저장소명
+    const path = ''; // 빈 문자열 = 루트 폴더, 또는 'docs' 등 하위 폴더명
+
+    const apiUrl = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
+
+    async function fetchFileList() {
+      const container = document.getElementById('file-list');
+      try {
+        const response = await fetch(apiUrl);
+        if (!response.ok) throw new Error('API 호출 실패: ' + response.status);
+        const data = await response.json();
+
+        if (!Array.isArray(data)) {
+          container.innerHTML = '<p>폴더가 비었거나 파일 목록을 가져올 수 없습니다.</p>';
+          return;
+        }
+
+        const ul = document.createElement('ul');
+        data.forEach(item => {
+          if (item.type === 'file') {
+            const li = document.createElement('li');
+            const a = document.createElement('a');
+            a.href = item.html_url; // GitHub 웹페이지 내 파일 링크
+            a.target = '_blank';
+            a.textContent = item.name;
+            li.appendChild(a);
+            ul.appendChild(li);
+          }
+        });
+
+        container.innerHTML = '';  // 로딩 메시지 제거
+        container.appendChild(ul);
+
+      } catch (error) {
+        container.innerHTML = `<p>오류 발생: ${error.message}</p>`;
+      }
+    }
+
+    fetchFileList();
+  </script>
 </body>
 </html>
