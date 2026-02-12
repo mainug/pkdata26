@@ -5,3 +5,5 @@
 - 함수
 
 ## 클래스
+
+[GitHub Pages]: https://mainug.github.io/pkdata26/
