@@ -1,6 +1,0 @@
-print("Change text")
-안
-녕
-하
-세
-요
