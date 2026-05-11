@@ -1,0 +1,22 @@
+.box {
+  display: flex;
+  justify-content: center;
+}
+
+.card {
+  margin: 20px;
+  padding: 20px;
+  width: 200px;
+  min-height: 150px;
+  border: 1px solid gray;
+  border-radius: 8px;
+  background-color: white;
+}
+
+.card h2 {
+  color: coral;
+}
+
+h1 {
+  text-align: center;
+}
