@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>그라데이션</title>
+    <style>
+      div {
+        width: 500px;
+        height: 300px;
+        border: 1px solid gray;
+        margin: 30px;
+      }
+      .grad1 {
+        background: repeating-radial-gradient(
+          yellow,
+          yellow 20px,
+          red 20px,
+          red 40px
+        );
+      }
+    </style>
+  </head>
+  <body>
+    <h1>원형그라데이션</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div class="grad1"></div>
+    <div class="grad2"></div>
+  </body>
+</html>

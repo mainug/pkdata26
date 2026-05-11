@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>border-box</title>
+    <style>
+      div {
+        border: 1px solid gray;
+        width: 200px;
+        height: 100px;
+      }
+      .box1 {
+        box-sizing: border-box;
+        border: 30px solid lightblue;
+      }
+      .box2 {
+        box-sizing: content-box;
+        border: 30px solid lightcoral;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>border-box</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div class="box1">border-box</div>
+    <div class="box2">content-box(default)</div>
+  </body>
+</html>

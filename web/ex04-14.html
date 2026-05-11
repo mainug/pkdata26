@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position</title>
+    <style>
+      .grandparent {
+        width: 200px;
+        height: 200px;
+        background-color: lightblue;
+        position: relative;
+      }
+      .parent {
+        width: 150px;
+        height: 150px;
+        background-color: lightcoral;
+        position: absolute;
+        top: 20px;
+      }
+      .child {
+        width: 50px;
+        height: 50px;
+        background-color: lightgoldenrodyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>position</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <h2>조부모, 부모, 자식 관계</h2>
+    <!-- div.grandparent>div.parent>div.child -->
+    <div class="grandparent">
+      <div class="parent">
+        <div class="child"></div>
+      </div>
+    </div>
+  </body>
+</html>

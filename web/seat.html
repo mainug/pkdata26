@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <title>자리배치도</title>
+    <style>
+      body {
+        text-align: center;
+        font-family: sans-serif;
+      }
+      .seat {
+        display: inline-block;
+        width: 40px;
+        height: 40px;
+        line-height: 40px;
+        border: 1px solid #999;
+        margin: 2px;
+        font-size: 12px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>자리배치도</h1>
+    <div id="g"></div>
+    <script>
+      const t = parseInt(prompt("총 인원 몇명?")),
+        p = parseInt(prompt("한줄에 몇명 앉을래?")),
+        g = document.getElementById("g");
+      let n = 1;
+      for (let i = 0; n <= t; i++) {
+        const row = g.appendChild(document.createElement("div"));
+        for (let j = 0; j < p && n <= t; j++)
+          row.insertAdjacentHTML(
+            "beforeend",
+            `<span class="seat">${n++}</span>`,
+          );
+      }
+    </script>
+  </body>
+</html>

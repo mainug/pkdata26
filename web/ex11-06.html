@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>cssText</title>
+  </head>
+  <body>
+    <h1 style="font-size: 2rem; text-align: end; color: blue">
+      cssText의 속성을 알아보자
+    </h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <button>값 읽어오기</button>
+    <button>초기화</button>
+    <button>스타일1</button>
+    <button>스타일2</button>
+    <p></p>
+    <script>
+      const h1 = document.querySelector("h1");
+      const p = document.querySelector("p");
+      const buttons = document.querySelectorAll("button");
+
+      buttons[0].addEventListener("click", () => {
+        p.textContent = h1.style.cssText;
+      });
+      buttons[1].addEventListener("click", () => {
+        h1.style.cssText = "font-size: 2rem; text-align: end; color: blue";
+      });
+      buttons[2].addEventListener("click", () => {
+        h1.style.cssText =
+          "font-size: 1.5rem; text-align: start; color: salmon";
+      });
+      buttons[3].addEventListener("click", () => {
+        h1.style.cssText =
+          "font-size: 1rem; text-align: center; color: skyblue";
+      });
+    </script>
+  </body>
+</html>

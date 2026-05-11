@@ -1,0 +1,26 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sum</title>
+  </head>
+  <body>
+    <p id="result"></p>
+    <script>
+      const si = prompt("시작값");
+      const ei = prompt("끝값");
+
+      const s = parseInt(si, 10);
+      const e = parseInt(ei, 10);
+
+      let sum = 0;
+      for (let i = s; i <= e; i++) {
+        sum += i;
+      }
+
+      const a = (document.getElementById("result").textContent =
+        `${s} 부터 ${e}까지의 합은 ${sum}이다.`);
+    </script>
+  </body>
+</html>

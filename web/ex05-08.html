@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>가상요소선택지</title>
+    <style>
+      p::before {
+        content: "qwer";
+      }
+      p:first-of-type {
+        color: blue;
+      }
+      p:first-of-type::after {
+        content: "유성";
+        color: brown;
+      }
+      p:nth-of-type(2) {
+        background-color: yellow;
+        display: block;
+      }
+      p:nth-of-type(3)::after {
+        content: "돈";
+        font-size: 0.5rem;
+      }
+      p:nth-last-of-type(2)::after {
+        content: "메로나~";
+        color: lightgreen;
+      }
+      p:last-of-type::after {
+        content: "감사합니다.";
+        color: white;
+        background-color: black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>가상요소선택지</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <p>a</p>
+    <p>b</p>
+    <p>c</p>
+    <p>d</p>
+    <p>e</p>
+  </body>
+</html>

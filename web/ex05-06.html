@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>구조적가상클래스</title>
+    <style>
+      div:first-of-type {
+        border: 1px solid red;
+      }
+      p:first-child {
+        background-color: lightcoral;
+      }
+      p:last-child {
+        background-color: lightblue;
+      }
+      p:last-of-type {
+        color: lightgreen;
+      }
+      div:last-of-type {
+        background-color: lightgoldenrodyellow;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>구조적가상클래스</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div>
+      <p>first</p>
+      <span>test</span>
+      <p>first not</p>
+      <p>first not</p>
+      <p>first not</p>
+      <p>last</p>
+      <span>test</span>
+    </div>
+    <div>
+      <p>first</p>
+      <p>first not</p>
+      <p>first not</p>
+      <p>first not</p>
+      <p>last</p>
+    </div>
+  </body>
+</html>

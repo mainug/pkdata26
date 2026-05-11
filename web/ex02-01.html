@@ -1,0 +1,198 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>input 기능</title>
+    <style>
+      body {
+        font-family:
+          "맑은 고딕",
+          Malgun Gothic,
+          dotum,
+          돋움,
+          arial,
+          sans-serif;
+        background-color: #f9f9f9;
+        padding: 20px;
+        color: #333;
+      }
+      h1 {
+        color: #2c3e50;
+        margin-bottom: 10px;
+        font-weight: 700;
+      }
+      hr {
+        border: none;
+        border-top: 2px solid #ccc;
+        margin-bottom: 20px;
+      }
+      a {
+        display: inline-block;
+        margin-bottom: 20px;
+        color: #3498db;
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+      form {
+        background-color: #fff;
+        padding: 15px 25px;
+        border-radius: 8px;
+        box-shadow: 0 2px 6px rgb(0 0 0 / 0.1);
+        max-width: 480px;
+      }
+      label {
+        display: block;
+        margin-top: 15px;
+        font-weight: 600;
+        margin-bottom: 6px;
+        cursor: pointer;
+      }
+      input[type="text"],
+      input[type="number"] {
+        width: 100%;
+        padding: 8px 10px;
+        border: 1px solid #aaa;
+        border-radius: 4px;
+        font-size: 14px;
+        box-sizing: border-box;
+      }
+
+      .option-group {
+        margin-top: 12px;
+        margin-bottom: 8px;
+      }
+
+      /* 수정: 각 옵션을 inline-flex로 가로 정렬 */
+      .option-label {
+        display: inline-flex;
+        align-items: center;
+        margin-right: 15px;
+        margin-bottom: 8px;
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .option-label input {
+        margin-right: 6px;
+        vertical-align: middle;
+      }
+
+      .buttons {
+        margin-top: 25px;
+        display: flex;
+        gap: 12px;
+      }
+      input[type="submit"],
+      input[type="reset"] {
+        background: #3498db;
+        border: none;
+        color: #fff;
+        padding: 10px 18px;
+        font-weight: 600;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 15px;
+        transition: background 0.3s ease;
+      }
+      input[type="reset"] {
+        background: #95a5a6;
+      }
+      input[type="submit"]:hover {
+        background: #2980b9;
+      }
+      input[type="reset"]:hover {
+        background: #7f8c8d;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>input 기능</h1>
+    <hr />
+    <a href="index.html">홈으로</a>
+    <form
+      action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSecJjypIWqry7zRo0hwHJlGSjKpouip7K3f-0850ZzyWojuBQ12PQ/formResponse"
+      method="post"
+    >
+      <label for="surname">당신의 성은?</label>
+      <input type="text" id="surname" name="entry.1836558462" />
+
+      <label for="name">당신의 이름은?</label>
+      <input type="text" id="name" name="entry.922252025" />
+
+      <label for="age">나이는?</label>
+      <input
+        type="number"
+        id="age"
+        min="12"
+        max="20"
+        value="15"
+        step="1"
+        name="entry.524744457"
+      />
+
+      <label>아침으로 뭘 드시나요?</label>
+      <div class="option-group">
+        <label class="option-label">
+          <input type="checkbox" name="entry.838433706" value="밥" id="rice" />
+          밥
+        </label>
+        <label class="option-label">
+          <input type="checkbox" name="entry.838433706" value="빵" id="bread" />
+          빵
+        </label>
+      </div>
+
+      <label>학생인가요?</label>
+      <div class="option-group">
+        <label class="option-label">
+          <input
+            type="radio"
+            name="entry.916159415"
+            value="예"
+            id="student-yes"
+          />
+          예
+        </label>
+        <label class="option-label">
+          <input
+            type="radio"
+            name="entry.916159415"
+            value="아니오"
+            id="student-no"
+          />
+          아니오
+        </label>
+      </div>
+
+      <label>공부를 잘 하시나요?</label>
+      <div class="option-group">
+        <label class="option-label">
+          <input
+            type="radio"
+            name="entry.140847711"
+            value="예"
+            id="study-yes"
+          />
+          예
+        </label>
+        <label class="option-label">
+          <input
+            type="radio"
+            name="entry.140847711"
+            value="아니오"
+            id="study-no"
+          />
+          아니오
+        </label>
+      </div>
+
+      <div class="buttons">
+        <input type="submit" value="제출" />
+        <input type="reset" value="초기화" />
+      </div>
+    </form>
+  </body>
+</html>

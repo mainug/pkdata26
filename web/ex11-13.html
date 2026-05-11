@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>문서 객체 생성하기</title>
+  </head>
+  <body>
+    <h1></h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const header = document.createElement("h1");
+        header.textContent = "문서 객체 동적으로 생성중...";
+        header.style.color = "white";
+        header.style.backgroundColor = "brown";
+        header.setAttribute("id", "head");
+        header.setAttribute("class", "system item"); // 덮어쓰기 가능, 조심
+        header.classList.add("title", "main", "header");
+        document.body.appendChild(header);
+      });
+    </script>
+  </body>
+</html>

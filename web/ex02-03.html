@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>패턴 테스트</title>
+  </head>
+  <body>
+    <h1>패턴 테스트</h1>
+    <hr />
+    <a href="index.html">홈으로</a>
+    <fieldset>
+      <legend>전송 테스트</legend>
+      <!-- form>(input+br)*3+div>em{패턴에 맞출 것} -->
+      <form action="#">
+        ID : <input type="text" required /><br />
+        Password :
+        <input type="password" pattern="[a-z0-9]{3,}" required /><br />
+        Etc : <input type="text" readonly /><br />
+        <input type="submit" value="전송" /><br />
+        <div><em>패턴에 맞출 것</em></div>
+      </form>
+    </fieldset>
+  </body>
+</html>

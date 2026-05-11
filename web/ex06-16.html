@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <style>
+      .container {
+        width: 300px;
+        height: 400px;
+        border: 5px solid gray;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .container > div {
+        width: 100px;
+        height: 100px;
+        background-color: lightblue;
+      }
+      .container > div:nth-of-type(2),
+      .container > div:nth-of-type(5) {
+        align-self: flex-end;
+      }
+    </style>
+  </head>
+  <body>
+    <h1></h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div class="container">
+      <div>1</div>
+      <div>2</div>
+      <div>3</div>
+      <div>4</div>
+      <div>5</div>
+      <div>6</div>
+    </div>
+  </body>
+</html>

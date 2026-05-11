@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CDN 방식 React 실습</title>
+
+    <!-- React 18 -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <!-- React DOM 18 -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel (ES6 모듈 변환) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const text = "반가워요";
+      const num = 12345;
+
+      function MyApp() {
+        return (
+          <main>
+            <h1>리액트를 처음 써봅니다</h1>
+            <p>어떤 내용을 여기에 넣어 볼께요.</p>
+            <h2>이 내용이에요. {text}</h2>
+            <h3>{num * 10}개 에요.</h3>
+          </main>
+        );
+      }
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<MyApp />);
+    </script>
+  </body>
+</html>

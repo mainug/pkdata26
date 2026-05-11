@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>함수선언식으로 게임</title>
+  </head>
+  <body>
+    영웅의 이름을 입력하세요 <input id="name" type="text" /> <br />
+    영웅의 레벨을 입력하세요 <input id="level" type="number" /> <br />
+    영웅의 스킬을 입력하세요 <input id="skill" type="text" /><br />
+    <button id="run">실행</button>
+    <hr />
+    <div id="result"></div>
+    <script>
+      const lol = function (heroName, level = 1, cb) {
+        let output = "==========================<br>";
+        output += `${heroName}님이 ${level}레벨이 되었습니다.<br>`;
+        output += "==========================<br>";
+
+        if (level >= 6) {
+          output += `${heroName}님이 궁극기를 씁니다.<br>`;
+          output += cb(level);
+        } else {
+          output += `${heroName}님이 깨작 평타를 때립니다.<br>`;
+        }
+        return output;
+      };
+
+      const fire = function (ff) {
+        let out = "";
+        for (let i = 1; i < ff + 1; i++) {
+          out += `${ff}레벨 이어서 ${i}개 메테오를 던집니다.<br>`;
+        }
+        return out;
+      };
+
+      const ice = function (ii) {
+        let out = "";
+        for (let i = 1; i < ii; i++) {
+          out += `${ii}레벨 이어서 ${i * 2}개 얼음을 던집니다.<br>`;
+        }
+        return out;
+      };
+
+      const slow = function (ss) {
+        let out = "";
+        for (let i = ss; 0 < i; i--) {
+          out += `${ss}레벨 이어서 다리를 공격하여 이동속도를 ${i}% 줄입니다.<br>`;
+        }
+        return out;
+      };
+      document.getElementById("run").addEventListener("click", function () {
+        const name = document.getElementById("name").value.trim();
+        const level = parseInt(document.getElementById("level").value);
+        const skill = document
+          .getElementById("skill")
+          .value.trim()
+          .toLowerCase();
+
+        const skills = { fire, ice, slow };
+        const cb = skills[skill];
+
+        const callback =
+          cb ||
+          function () {
+            return "";
+          };
+
+        const result = lol(name, level, callback);
+        document.getElementById("result").innerHTML = result;
+      });
+    </script>
+  </body>
+</html>

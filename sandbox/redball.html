@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>빨간색 공</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      height: 100vh;
+    }
+    h1 {
+      position: absolute;
+      top: 30%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 80px;
+      color: white;
+      font-weight: bold;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    .sub-text {
+      position: absolute;
+      top: 45%;
+      left: 50%;
+      transform: translate(-50%, 0);
+      font-size: 20px;
+      color: rgba(255, 255, 255, 0.8);
+      font-weight: normal;
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+      z-index: 10;
+    }
+    .ball {
+      position: absolute;
+      width: 50px;
+      height: 50px;
+      background: radial-gradient(circle at 30% 30%, #ff6b6b, #c23616);
+      border-radius: 50%;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+      transition: transform 0.1s ease;
+      cursor: pointer;
+    }
+    .ball:active {
+      transform: scale(0.95);
+    }
+  </style>
+</head>
+<body>
+  <h1 style="position: absolute; top: 30%; left: 50%; transform: translate(-50%, 0); font-size: 80px; color: white; font-weight: bold; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); z-index: 10;">WELCOME</h1>
+  <p class="sub-text" style="position: absolute; top: 45%; left: 50%; transform: translate(-50%, 0); font-size: 20px; color: rgba(255, 255, 255, 0.8); font-weight: normal; text-shadow: 1px 1px 2px rgba(0,0,0,0.3); z-index: 10;">테스트 페이지입니다.</p>
+  <div id="ball" class="ball"></div>
+
+  <script>
+    const ball = document.getElementById('ball');
+    let x = Math.random() * (window.innerWidth - 50);
+    let y = Math.random() * (window.innerHeight - 50);
+    let dx = Math.random() * 4 - 2;
+    let dy = Math.random() * 4 - 2;
+
+    function moveBall() {
+      x += dx;
+      y += dy;
+
+      // 벽에 도달하면 반사
+      if (x <= 0 || x >= window.innerWidth - 50) {
+        dx = -dx;
+      }
+      if (y <= 0 || y >= window.innerHeight - 50) {
+        dy = -dy;
+      }
+
+      ball.style.left = x + 'px';
+      ball.style.top = y + 'px';
+
+      requestAnimationFrame(moveBall);
+    }
+
+    moveBall();
+  </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>box</title>
+  </head>
+  <body>
+    <h1>과일목록관리</h1>
+    <p id="result"></p>
+
+    <script>
+      const box = ["딸기", "바나나", "사과", "수박", "키위", "복숭아", "포도"];
+
+      const remove = prompt(
+        "딸기,바나나,사과,수박,배,키위,복숭아,포도 중 제거하고 싶은 품목을 입력하세요.",
+      );
+
+      if (remove && remove.trim() !== "") {
+        const i = box.indexOf(remove.trim());
+        if (i !== -1) {
+          box.splice(i, 1);
+          alert(`${remove} 제거`);
+        } else {
+          alert(`${remove} 없어서 제거 불가`);
+        }
+      }
+
+      const add = prompt(
+        "딸기,바나나,사과,수박,배,키위,복숭아,포도 외에 추가하고 싶은 품목을 입력하세요.",
+      );
+
+      if (add && add.trim() !== "") {
+        if (box.includes(add.trim())) {
+          alert(`${add} 존재해 추가 불가`);
+        } else {
+          box.push(add.trim());
+          alert(`${add} 추가`);
+        }
+      }
+
+      const result = document.getElementById("result");
+      result.textContent = `정리된 품목은 ${box.join(",")}입니다.`;
+    </script>
+  </body>
+</html>

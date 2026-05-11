@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table {
+        width: 100%;
+        height: 700px;
+      }
+      td {
+        border: 1px solid #ccc;
+      }
+      .header,
+      .footer {
+        height: 15%;
+        background-color: lightblue;
+      }
+      .content {
+        height: 70%;
+      }
+      .center {
+        width: 60%;
+        background-color: lightcoral;
+      }
+      .nav {
+        height: 5%;
+        text-align: center;
+      }
+      #title {
+        font-size: 3rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>테이블 응용</h1>
+    <hr />
+    <a href="index.html">홈으로</a>
+    <!-- table>(tr>td*3)*3 -->
+    <table>
+      <tr class="header">
+        <td colspan="3" id="title">never</td>
+      </tr>
+      <tr class="nav">
+        <td colspan="3">
+          메일 | 카페 | 블로그 | 스토어 | 뉴스 | 증권 | 부동산 | 지도 | 웹툰 |
+          치지직
+        </td>
+      </tr>
+      <tr class="content">
+        <td><img src="assets/sample.jpg" width="100%" /></td>
+        <td class="center">
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Deleniti
+          distinctio culpa eos aliquam omnis consectetur quam, nihil ut,
+          laudantium dolorum dignissimos cumque eveniet quis maiores deserunt
+          quisquam sunt totam enim.
+        </td>
+        <td><img src="assets/sample.jpg" width="100%" /></td>
+      </tr>
+      <tr class="footer">
+        <td colspan="3"></td>
+      </tr>
+    </table>
+  </body>
+</html>

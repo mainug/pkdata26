@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h2>fetch 방식으로 데이터 요청</h2>
+    <hr />
+    <button>데이터 요청</button>
+    <hr />
+    <h3 id="disp">여기에 데이터 도착</h3>
+    <script>
+      const btn = document.querySelector("button");
+      const disp = document.querySelector("#disp");
+      btn.addEventListener("click", () => {
+        fetch("http://localhost:3000/data", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name: "홍길동", age: 20 }),
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            disp.textContent = JSON.stringify(data);
+          });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>float 레이아웃</title>
+    <style>
+      :root {
+        --myred1: darkred;
+        --myred2: red;
+        --myred3: lightcoral;
+        --mygreen1: darkgreen;
+        --mygreen2: green;
+        --mygreen3: lightgreen;
+        --myblue1: darkblue;
+        --myblue2: blue;
+        --myblue3: lightblue;
+        --mypink1: palevioletred;
+        --mypink2: pink;
+        --mypink3: lightpink;
+      }
+      header,
+      footer {
+        width: 300px;
+        height: 40px;
+        background-color: var(--myblue2);
+        border: 5px solid var(--myblue1);
+        box-sizing: border-box;
+      }
+      footer {
+        background-color: var(--mypink2);
+        border: 5px solid var(--mypink1);
+      }
+      nav {
+        width: 50px;
+        height: 250px;
+        background-color: var(--mygreen2);
+        float: left;
+        border: 5px solid var(--mygreen1);
+        box-sizing: border-box;
+      }
+      main {
+        width: 250px;
+        margin-left: 50px;
+      }
+      article {
+        height: 50px;
+        background-color: lemonchiffon;
+        border: 5px solid yellow;
+        box-sizing: border-box;
+      }
+      section {
+        height: 200px;
+        background-color: var(--myred2);
+        border: 5px solid var(--myred1);
+        box-sizing: border-box;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>float 레이아웃</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.box>header{header}>div>nav{nav}+main>article{article}+section{section}^^footer{footer} -->
+    <div class="box">
+      <header>
+        header
+        <div>
+          <nav>nav</nav>
+          <main>
+            <article>article</article>
+            <section>section</section>
+          </main>
+        </div>
+        <footer>footer</footer>
+      </header>
+    </div>
+  </body>
+</html>

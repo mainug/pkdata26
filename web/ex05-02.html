@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>position fixed</title>
+    <style>
+      .table-wrapper {
+        height: 300px;
+        overflow: auto;
+      }
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        /* position: fixed; */
+      }
+      th,
+      td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+      }
+      thead,
+      tfoot {
+        background-color: darkslateblue;
+        color: white;
+        position: sticky;
+      }
+      thead {
+        top: 0;
+      }
+      tfoot {
+        bottom: 0;
+      }
+      #fix {
+        position: fixed;
+        left: 850px;
+        top: 350px;
+        background-color: coral;
+        padding: 10px;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        font-size: 2rem;
+        color: white;
+        text-align: center;
+        line-height: 1.1;
+        box-shadow: 2px 2px 5px black;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>position fixed</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <!-- div.table-wrapper>table>thead>tr>th*4^^tbody>(tr>td*4)*10^tfoot>tr>td*4 -->
+    <div class="table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>번호</th>
+            <th>이름</th>
+            <th>나이</th>
+            <th>직원</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>홍길동</td>
+            <td>25</td>
+            <td>안</td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>이순신</td>
+            <td>21</td>
+            <td>녕</td>
+          </tr>
+          <tr>
+            <td>3</td>
+            <td>김영희</td>
+            <td>30</td>
+            <td>박</td>
+          </tr>
+          <tr>
+            <td>4</td>
+            <td>최민수</td>
+            <td>28</td>
+            <td>이</td>
+          </tr>
+          <tr>
+            <td>5</td>
+            <td>박지은</td>
+            <td>26</td>
+            <td>정</td>
+          </tr>
+          <tr>
+            <td>6</td>
+            <td>강태훈</td>
+            <td>35</td>
+            <td>최</td>
+          </tr>
+          <tr>
+            <td>7</td>
+            <td>이수진</td>
+            <td>22</td>
+            <td>김</td>
+          </tr>
+          <tr>
+            <td>8</td>
+            <td>서현우</td>
+            <td>27</td>
+            <td>손</td>
+          </tr>
+          <tr>
+            <td>9</td>
+            <td>한가은</td>
+            <td>24</td>
+            <td>윤</td>
+          </tr>
+          <tr>
+            <td>10</td>
+            <td>정다윤</td>
+            <td>29</td>
+            <td>조</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colspan="4">명단의 끝</td>
+          </tr>
+        </tfoot>
+      </table>
+    </div>
+    <div id="fix">^</div>
+  </body>
+</html>

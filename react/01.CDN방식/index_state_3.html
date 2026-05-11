@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CDN 방식 React 실습</title>
+
+    <!-- React 18 -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <!-- React DOM 18 -->
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <!-- Babel (ES6 모듈 변환) -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  </head>
+  <body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+      const { useState } = React;
+
+      const App = () => {
+        const [count, setCount] = useState(0);
+
+        // 일반적인 업데이트 방식: 현재 렌더링 시점의 count 값을 참조함
+        const handleCount = () => {
+          setCount(count + 1);
+          setCount(count + 1);
+          setCount(count + 1);
+        };
+
+        // prev(함수형) 업데이트 방식: 최신 상태 값을 인자로 받아 처리함
+        const handleCountV = () => {
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1);
+          setCount((prev) => prev + 1);
+        };
+
+        return (
+          <main>
+            <h1>useState 의 prev 방식</h1>
+            <p>버튼을 누르면 상태가 바뀐다. 화면이 다시 렌더링됩니다.</p>
+            <h2>현재 값: {count}</h2>
+            <button onClick={handleCount}>증가</button>
+            <button onClick={handleCountV}>prev증가</button>
+          </main>
+        );
+      };
+
+      ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+    </script>
+  </body>
+</html>

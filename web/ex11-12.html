@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+  </head>
+  <body>
+    <h1></h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div id="app">
+      Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptatem
+      aperiam eum dolores ab amet accusantium nam quod accusamus dolore libero,
+      unde corporis est magnam inventore atque, tempora dolorum rerum totam.
+      Commodi debitis quibusdam beatae molestias hic aliquam quidem, fugiat
+      autem recusandae vel, quia deserunt dolor libero laborum officia,
+      consequatur eaque. Molestiae quae deleniti id eos nulla, sequi nobis? Id,
+      harum? Culpa maxime nesciunt rerum. Sint facere, ipsa amet rerum nesciunt
+      voluptates molestiae? Repellat quibusdam ex error maiores ea consectetur
+      laboriosam perferendis minima, blanditiis porro unde numquam facere.
+      Fugit, et praesentium? Molestias repudiandae corrupti, harum qui cum quia
+      nulla quo assumenda libero fugit repellendus provident architecto dolorem
+      aliquam praesentium iure dolores labore ad ratione optio accusantium
+      voluptatem quasi. Assumenda, amet aliquam. Non odit deserunt aliquam? Amet
+      quibusdam autem reprehenderit? Incidunt a nihil, dolorem sed placeat
+      repellendus totam eum veniam nemo dignissimos quia repellat recusandae?
+      Totam molestias quas assumenda sit, odio excepturi. Placeat dolores ullam
+      mollitia qui excepturi maxime ducimus harum possimus aut vel! Quo vel
+      laborum modi voluptate. Adipisci placeat ut sint corrupti, eos, fuga ex
+      nostrum a totam suscipit neque. Nobis beatae consequuntur reprehenderit,
+      illum quaerat eius perferendis voluptatem quidem consectetur totam commodi
+      doloremque. Velit odit minima architecto corporis repellendus dolorum rem,
+      asperiores, commodi voluptatibus quos laboriosam, officiis possimus neque.
+      Nobis non quia voluptatibus mollitia. Sunt repellat ea voluptatum ut rerum
+      cupiditate, mollitia deleniti vitae aspernatur earum fugit quos placeat
+      eos eum nobis qui maxime repellendus nulla debitis veritatis porro. Quis,
+      dolor accusamus nobis sint sequi quo quasi voluptatibus, rem illum est in
+      asperiores ducimus ea assumenda vel laudantium ipsam ullam minima, odit
+      suscipit! Quidem necessitatibus quos excepturi. Sequi, officia? Reiciendis
+      accusantium obcaecati corrupti est sapiente totam architecto sed, fugiat
+      aspernatur? Accusamus saepe nesciunt quo dolores consequatur dicta, fuga
+      enim eaque quos, ducimus error, nihil earum. Fugiat nam quia enim.
+    </div>
+    <script>
+      const text = document.querySelector("#app");
+      const str = text.textContent;
+      const words = str
+        .trim()
+        .split(" ")
+        .map((w) => w.replace(/[.,?!\n]/g, ""))
+        .filter((w) => w);
+
+      const big = [];
+      const small = [];
+
+      words.forEach((w) => {
+        if (w.length > 5) {
+          big.push(w);
+        } else {
+          if (w.length < 5) {
+            small.push(w);
+          }
+        }
+      });
+
+      console.log(big);
+      console.log(small);
+    </script>
+  </body>
+</html>

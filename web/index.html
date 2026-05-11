@@ -1,0 +1,539 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>html 실습</title>
+    <style>
+      body {
+        background-color: #f9f6f2;
+        color: #4a4a4a;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        margin: 20px;
+      }
+
+      h1 {
+        background-color: #a3c4f3;
+        color: #2c3e50;
+        padding: 15px 20px;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(163, 196, 243, 0.5);
+      }
+
+      .card {
+        background-color: white;
+        border-radius: 8px;
+        padding: 18px 24px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        margin-bottom: 20px;
+        line-height: 1.6;
+        color: #4a4a4a;
+        transition: box-shadow 0.3s ease;
+      }
+      .card:hover {
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+      }
+
+      button.day-btn {
+        background: none;
+        border: none;
+        color: #ad6ea0;
+        font-size: 1.5rem;
+        font-weight: 700;
+        cursor: pointer;
+        padding: 8px 0;
+        text-align: left;
+        width: 100%;
+        transition: color 0.3s ease;
+      }
+
+      button.day-btn:hover,
+      button.day-btn:focus {
+        color: #f3a6c4;
+        outline: none;
+      }
+
+      /* 링크 개별 애니메이션 */
+      @keyframes linkFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-6px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .examples a {
+        color: #6c63ff;
+        font-weight: 600;
+        padding: 6px 12px;
+        border-radius: 4px;
+        text-decoration: none;
+        transition:
+          background-color 0.3s ease,
+          color 0.3s ease;
+        /* 기본 상태: 숨김 */
+        opacity: 0;
+        display: inline-block;
+      }
+      .examples a:hover,
+      .examples a:focus {
+        background-color: #6c63ff;
+        color: #f9f6f2;
+        outline: none;
+      }
+      .examples a:focus {
+        outline: 3px solid #f3a6c4;
+        outline-offset: 2px;
+      }
+
+      /* open 상태일 때 링크 애니메이션 실행 */
+      .examples.open a {
+        animation: linkFadeIn 0.3s ease forwards;
+      }
+
+      .examples {
+        height: 0;
+        overflow: hidden;
+        opacity: 0;
+        margin-top: 0;
+        transition:
+          height 0.4s ease,
+          opacity 0.4s ease,
+          margin-top 0.4s ease;
+        pointer-events: none;
+        visibility: hidden;
+      }
+      .examples.open {
+        opacity: 1;
+        margin-top: 10px;
+        pointer-events: auto;
+        visibility: visible;
+        overflow: visible;
+      }
+
+      #day-buttons-wrapper {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 10px;
+        align-items: start;
+        grid-auto-rows: min-content;
+      }
+
+      .day-section {
+        display: flex;
+        flex-direction: column;
+      }
+
+      @media (max-width: 1000px) {
+        #day-buttons-wrapper {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        #day-buttons-wrapper {
+          grid-template-columns: repeat(1, 1fr);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <h1>html 실습</h1>
+
+    <div id="day-buttons-wrapper">
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-1day"
+          id="day1-btn"
+        >
+          1일차 ▼
+        </button>
+        <div id="examples-1day" class="examples" aria-labelledby="day1-btn">
+          <a href="ex01-01.html">예제 1</a><br />
+          <a href="ex01-02.html">예제 2</a><br />
+          <a href="ex01-03.html">예제 3</a><br />
+          <a href="ex01-04.html">예제 4</a><br />
+          <a href="ex01-05.html">예제 5</a><br />
+          <a href="ex01-06.html">예제 6</a><br />
+          <a href="ex01-07.html">예제 7</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-2day"
+          id="day2-btn"
+        >
+          2일차 ▼
+        </button>
+        <div id="examples-2day" class="examples" aria-labelledby="day2-btn">
+          <a href="ex02-01.html">예제 1</a><br />
+          <a href="ex02-02.html">예제 2</a><br />
+          <a href="ex02-03.html">예제 3</a><br />
+          <a href="ex02-04.html">예제 4</a><br />
+          <a href="ex02-05.html">예제 5</a><br />
+          <a href="ex02-06.html">예제 6</a><br />
+          <a href="ex02-07.html">예제 7</a><br />
+          <a href="ex02-08.html">예제 8</a><br />
+          <a href="ex02-09.html">예제 9</a><br />
+          <a href="ex02-10.html">예제 10</a><br />
+          <a href="ex02-11.html">예제 11</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-3day"
+          id="day3-btn"
+        >
+          3일차 ▼
+        </button>
+        <div id="examples-3day" class="examples" aria-labelledby="day3-btn">
+          <a href="ex03-01.html">예제 1</a><br />
+          <a href="ex03-02.html">예제 2</a><br />
+          <a href="ex03-03.html">예제 3</a><br />
+          <a href="ex03-04.html">예제 4</a><br />
+          <a href="ex03-05.html">예제 5</a><br />
+          <a href="ex03-06.html">예제 6</a><br />
+          <a href="ex03-07.html">예제 7</a><br />
+          <a href="ex03-08.html">예제 8</a><br />
+          <a href="ex03-09.html">예제 9</a><br />
+          <a href="ex03-10.html">예제 10</a><br />
+          <a href="ex03-11.html">예제 11</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-4day"
+          id="day4-btn"
+        >
+          4일차 ▼
+        </button>
+        <div id="examples-4day" class="examples" aria-labelledby="day4-btn">
+          <a href="ex04-01.html">예제 1</a><br />
+          <a href="ex04-02.html">예제 2</a><br />
+          <a href="ex04-03.html">예제 3</a><br />
+          <a href="ex04-04.html">예제 4</a><br />
+          <a href="ex04-05.html">예제 5</a><br />
+          <a href="ex04-06.html">예제 6</a><br />
+          <a href="ex04-07.html">예제 7</a><br />
+          <a href="ex04-08.html">예제 8</a><br />
+          <a href="ex04-09.html">예제 9</a><br />
+          <a href="ex04-10.html">예제 10</a><br />
+          <a href="ex04-11.html">예제 11</a><br />
+          <a href="ex04-12.html">예제 12</a><br />
+          <a href="ex04-13.html">예제 13</a><br />
+          <a href="ex04-14.html">예제 14</a><br />
+          <a href="ex04-15.html">예제 15</a><br />
+          <a href="ex04-16.html">예제 16</a><br />
+          <a href="ex04-17.html">예제 17</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-5day"
+          id="day5-btn"
+        >
+          5일차 ▼
+        </button>
+        <div id="examples-5day" class="examples" aria-labelledby="day5-btn">
+          <a href="ex05-01.html">예제 1</a><br />
+          <a href="ex05-02.html">예제 2</a><br />
+          <a href="ex05-03.html">예제 3</a><br />
+          <a href="ex05-04.html">예제 4</a><br />
+          <a href="ex05-05.html">예제 5</a><br />
+          <a href="ex05-06.html">예제 6</a><br />
+          <a href="ex05-07.html">예제 7</a><br />
+          <a href="ex05-08.html">예제 8</a><br />
+          <a href="ex05-09.html">예제 9</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-6day"
+          id="day6-btn"
+        >
+          6일차 ▼
+        </button>
+        <div id="examples-6day" class="examples" aria-labelledby="day6-btn">
+          <strong style="text-align: center"
+            >오전 예제 작성 없음(spring 작성)</strong
+          ><br />
+          <a href="ex06-13.html">예제 13</a><br />
+          <a href="ex06-14.html">예제 14</a><br />
+          <a href="ex06-15.html">예제 15</a><br />
+          <a href="ex06-16.html">예제 16</a><br />
+          <a href="ex06-17.html">예제 17</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-7day"
+          id="day7-btn"
+        >
+          7일차 ▼
+        </button>
+        <div id="examples-7day" class="examples" aria-labelledby="day7-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-8day"
+          id="day8-btn"
+        >
+          8일차 ▼
+        </button>
+        <div id="examples-8day" class="examples" aria-labelledby="day8-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong
+          ><br />
+          <a href="ball.html">움직이는 공</a><br />
+          <a href="flex.html">flex box 이용한 레이아웃</a><br />
+          <a href="seat.html">자리배치도</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-9day"
+          id="day9-btn"
+        >
+          9일차 ▼
+        </button>
+        <div id="examples-9day" class="examples" aria-labelledby="day9-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong
+          ><br />
+          <a href="box.html">과일목록관리</a><br />
+          <a href="sum.html">시작값부터 끝값까지의 합</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-10day"
+          id="day10-btn"
+        >
+          10일차 ▼
+        </button>
+        <div id="examples-10day" class="examples" aria-labelledby="day10-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong
+          ><br />
+          <a href="game.html">함수선언식으로 게임</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-11day"
+          id="day11-btn"
+        >
+          11일차 ▼
+        </button>
+        <div id="examples-11day" class="examples" aria-labelledby="day11-btn">
+          <a href="ex11-01.html">예제 1</a><br />
+          <a href="ex11-02.html">예제 2</a><br />
+          <a href="ex11-03.html">예제 3</a><br />
+          <a href="ex11-04.html">예제 4</a><br />
+          <a href="ex11-05.html">예제 5</a><br />
+          <a href="ex11-06.html">예제 6</a><br />
+          <a href="ex11-07.html">예제 7</a><br />
+          <a href="ex11-08.html">예제 8</a><br />
+          <a href="ex11-09.html">예제 9</a><br />
+          <a href="ex11-10.html">예제 10</a><br />
+          <a href="ex11-10a.html">예제 10a</a><br />
+          <a href="ex11-11.html">예제 11</a><br />
+          <a href="ex11-11a.html">예제 11a</a><br />
+          <a href="ex11-11b.html">예제 11b</a><br />
+          <a href="ex11-11c.html">예제 11c</a><br />
+          <a href="ex11-12.html">예제 12</a><br />
+          <a href="ex11-13.html">예제 13</a><br />
+          <a href="ex11-14.html">예제 14</a><br />
+          <a href="ex11-15.html">예제 15</a>
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-12day"
+          id="day12-btn"
+        >
+          12일차 ▼
+        </button>
+        <div id="examples-12day" class="examples" aria-labelledby="day12-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong
+          ><br />
+          <a href="bubble-chart.html">버블 차트</a><br />
+          <a href="line-chart.html">선형 차트</a><br />
+        </div>
+      </div>
+
+      <div class="day-section card">
+        <button
+          class="day-btn"
+          aria-expanded="false"
+          aria-controls="examples-13day"
+          id="day13-btn"
+        >
+          13일차 ▼
+        </button>
+        <div id="examples-13day" class="examples" aria-labelledby="day13-btn">
+          <strong style="text-align: center">정보처리기사 실기 공부</strong>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      const buttons = document.querySelectorAll("button.day-btn");
+
+      buttons.forEach((btn) => {
+        btn.setAttribute("tabindex", "0");
+
+        btn.addEventListener("keydown", (e) => {
+          if (e.key === "Enter" || e.key === " ") {
+            e.preventDefault();
+            btn.click();
+          }
+        });
+
+        btn.addEventListener("click", () => {
+          const contentId = btn.getAttribute("aria-controls");
+          const content = document.getElementById(contentId);
+          const isOpen = content.classList.contains("open");
+
+          // 다른 열린 콘텐츠 모두 닫기
+          buttons.forEach((otherBtn) => {
+            const otherContentId = otherBtn.getAttribute("aria-controls");
+            const otherContent = document.getElementById(otherContentId);
+
+            if (otherBtn !== btn && otherContent.classList.contains("open")) {
+              closeContent(otherContent, otherBtn);
+            }
+          });
+
+          if (isOpen) {
+            closeContent(content, btn);
+          } else {
+            openContent(content, btn);
+          }
+        });
+      });
+
+      function openContent(content, btn) {
+        const links = content.querySelectorAll("a");
+
+        // 링크 애니메이션 초기화 (재오픈 시에도 동작하도록)
+        links.forEach((link) => {
+          link.style.animation = "none";
+          link.style.opacity = "0";
+        });
+
+        // 강제 리플로우로 animation reset 적용
+        content.offsetHeight;
+
+        content.style.height = content.scrollHeight + "px";
+        content.style.opacity = "1";
+        content.style.marginTop = "10px";
+        content.style.pointerEvents = "auto";
+        content.classList.add("open");
+        btn.setAttribute("aria-expanded", "true");
+        btn.textContent = btn.textContent.replace("▼", "▲");
+
+        toggleLinks(content, true);
+
+        const BASE_DELAY = 100;
+        const STAGGER = 30;
+
+        links.forEach((link, i) => {
+          link.style.animation = "";
+          link.style.animationDelay = `${BASE_DELAY + i * STAGGER}ms`;
+        });
+      }
+
+      function closeContent(content, btn) {
+        const links = content.querySelectorAll("a");
+
+        // 닫힐 때 링크 즉시 숨김
+        links.forEach((link) => {
+          link.style.animation = "none";
+          link.style.opacity = "0";
+          link.style.animationDelay = "";
+        });
+
+        content.style.height = "0";
+        content.style.opacity = "0";
+        content.style.marginTop = "0";
+        content.style.pointerEvents = "none";
+        content.classList.remove("open");
+        btn.setAttribute("aria-expanded", "false");
+        btn.textContent = btn.textContent.replace("▲", "▼");
+
+        toggleLinks(content, false);
+      }
+
+      function toggleLinks(content, enable) {
+        const links = content.querySelectorAll("a");
+
+        links.forEach((link) => {
+          if (enable) {
+            link.classList.remove("disabled");
+            link.removeAttribute("tabindex");
+            link.style.pointerEvents = "auto";
+          } else {
+            link.classList.add("disabled");
+            link.setAttribute("tabindex", "-1");
+            link.style.pointerEvents = "none";
+          }
+        });
+      }
+
+      // 허공 클릭 시 열려있는 모든 콘텐츠 닫기
+      document.addEventListener("click", (e) => {
+        if (
+          !e.target.matches("button.day-btn") &&
+          !e.target.closest(".examples")
+        ) {
+          buttons.forEach((btn) => {
+            const contentId = btn.getAttribute("aria-controls");
+            const content = document.getElementById(contentId);
+
+            if (content.classList.contains("open")) {
+              closeContent(content, btn);
+            }
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

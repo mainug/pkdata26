@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>프로필</title>
+    <style>
+      body {
+        height: 100%;
+      }
+      .box {
+        height: 100vh;
+        background-color: lightblue;
+        padding-top: 8rem;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+      }
+      .card {
+        background-color: white;
+        max-width: 360px;
+        display: flex;
+        flex-direction: column;
+        border-radius: 30px;
+        overflow: hidden;
+        height: 70%;
+      }
+      .banner {
+        background-image: url(assets/sample.jpg);
+        background-size: 70px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+      }
+      .profile {
+        background-image: url(assets/sample.jpg);
+        background-size: 130px;
+        background-position: 0 0;
+        border-radius: 50%;
+        width: 130px;
+        height: 130px;
+        box-shadow: 5px 5px 10px gray;
+        transform: translateY(30%);
+        transition: transform 0.4s ease;
+      }
+      .profile:hover {
+        transform: translateY(30%) scale(1.2);
+      }
+      .name {
+        text-align: center;
+        padding-top: 20px;
+      }
+      .follow-btn {
+        padding: 0 2rem;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+      }
+      button {
+        font-size: 1.2rem;
+        font-weight: bold;
+        border-radius: 50px;
+        background-color: lightcyan;
+        border: none;
+        padding: 20px;
+      }
+      .desc {
+        padding: 1.5rem;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>프로필</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div class="box">
+      <div class="card">
+        <div class="banner">
+          <div class="profile"></div>
+        </div>
+        <h2 class="name">minwook</h2>
+        <div class="follow-btn"><button>follow</button></div>
+        <div class="desc">
+          contentcontentcontentcontentcontentcontent<br />
+          contentcontentcontentcontentcontent<br />
+          contentcontentcontentcontentcontentcontentcontent
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

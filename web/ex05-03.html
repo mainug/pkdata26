@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>사진가운데</title>
+    <style>
+      :root {
+        --width: 300px;
+      }
+
+      div {
+        width: 100%;
+      }
+      /* img {
+        display: block;
+        width: 300px;
+        margin: 10px auto;
+      } */
+      img {
+        position: relative;
+        width: var(--width);
+        left: calc(50% - var(--width) / 2);
+      }
+    </style>
+  </head>
+  <body>
+    <h1>가운데 정렬</h1>
+    <hr />
+    <a href="index.html">홈으로</a><br />
+    <div>
+      <img src="assets/sample.jpg" alt="" />
+    </div>
+  </body>
+</html>
