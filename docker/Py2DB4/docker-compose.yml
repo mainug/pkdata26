@@ -1,0 +1,97 @@
+services:
+  jupyterlab:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: jupyterlab
+    hostname: JUPYTERLAB
+    ports:
+      - "22:22"
+      - "8000:8888"
+    volumes:
+      - D:\\data\\jupyter_data:/home/pkdata/data
+    restart: always
+    networks:
+      - pknu_net
+    command: bash -c "service ssh start && python3 -m jupyterlab --ip=0.0.0.0 --allow-root --FileContentManager.delete_to_trash=False"
+
+  mysql:
+    image: mysql:8.0
+    container_name: mysql
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+      - mysql_conf:/etc/mysql/mysql.conf.d
+    environment:
+      MYSQL_ROOT_PASSWORD: "1234"
+    restart: always
+    networks:
+      - pknu_net
+
+  mongodb:
+    image: mongodb/mongodb-community-server:8.0.3-ubi8
+    container_name: mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db # 공식이미지에 있는 기본 DB경로
+    restart: always
+    networks:
+      - pknu_net
+
+  oracle-db:
+    image: gvenzl/oracle-xe:21-slim
+    container_name: oracle-db
+    ports:
+      - "1521:1521"
+      - "5500:5500"
+    volumes:
+      - oracle_data:/opt/oracle/oradata
+    environment:
+      ORACLE_PASSWORD: oracle
+      APP_USER: pknu
+      APP_USER_PASSWORD: 1234
+    restart: unless-stopped
+    networks:
+      - pknu_net
+
+  postgresql:
+    image: bitnami/postgresql:latest
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgre_data:/bitnami/postgresql
+    environment:
+      POSTGRESQL_USERNAME: pknu
+      POSTGRESQL_PASSWORD: "1234"
+      POSTGRESQL_DATABASE: appdb
+    restart: unless-stopped
+    networks:
+      - pknu_net
+
+  py3_sh:
+    image: python:3.12-alpine
+    container_name: py3
+    working_dir: /app
+    command: sh -c "tail -f /dev/null" # 컨테이너 유지
+    ports:
+      - "3300:3300"
+    volumes:
+      - py3_data:/app
+    restart: unless-stopped
+    networks:
+      - pknu_net
+
+volumes:
+  mysql_data:
+  mysql_conf:
+  mongodb_data:
+  oracle_data:
+  postgre_data:
+  py3_data:
+
+networks:
+  pknu_net:
+    driver: bridge
