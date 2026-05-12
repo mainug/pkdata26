@@ -1,0 +1,41 @@
+/* 상단 네비게이션 전체 바 */
+.dark-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  height: 60px;
+  background-color: #1a1c23; /* Home 배경색과 통일 */
+  border-bottom: 1px solid #333;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 로고/홈 링크 */
+.nav-logo {
+  text-decoration: none;
+  color: #a5b4fc;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+/* 오른쪽 링크 모음 */
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #9ca3af;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+/* 마우스 올렸을 때 효과 */
+.nav-links a:hover {
+  color: #ffffff;
+  transform: translateY(-2px);
+}
