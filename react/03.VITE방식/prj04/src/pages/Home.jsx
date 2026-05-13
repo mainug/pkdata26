@@ -1,46 +1,44 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Home.css";
 
 const Home = () => {
-  // 카드에 들어갈 데이터를 배열로 정리합니다.
-  const ex = [
-    { id: 1, title: "Ex01 페이지", desc: "첫 번째 예제", path: "/ex01" },
-    { id: 2, title: "Ex02 페이지", desc: "두 번째 예제", path: "/ex02" },
-    { id: 3, title: "Ex03 페이지", desc: "세 번째 예제", path: "/ex03" },
-    { id: 4, title: "Ex04 페이지", desc: "네 번째 예제", path: "/ex04" },
-    { id: 5, title: "Ex05 페이지", desc: "다섯 번째 예제", path: "/ex05" },
-    { id: 6, title: "Ex06 페이지", desc: "여섯 번째 예제", path: "/ex06" },
-    { id: 7, title: "Ex07 페이지", desc: "일곱 번째 예제", path: "/ex07" },
-    { id: 8, title: "Ex08 페이지", desc: "여덟 번째 예제", path: "/ex08" },
-    { id: 9, title: "Ex09 페이지", desc: "아홉 번째 예제", path: "/ex09" },
-    {
-      id: 10,
-      title: "Ex10 페이지",
-      desc: "열 번째 예제",
-      path: "/ex10",
-    },
-  ];
-
   return (
     <div className="home-page-bg">
       <div className="home-container">
-        <header className="home-header">
-          <h1>My React Project</h1>
-          <p>React 예제를 모아놓은 대시보드입니다.</p>
+        <header className="home-hero">
+          <h1 className="hero-title">My React Learning Hub</h1>
+          <p className="hero-subtitle">
+            리액트의 기초부터 심화 예제까지, <br />
+            차근차근 기록하고 연습하는 개인 프로젝트 저장소입니다.
+          </p>
         </header>
 
         <section className="home-content">
-          {/* map을 사용해 반복되는 코드를 줄입니다. */}
-          {ex.map((v) => (
-            <Link to={v.path} key={v.id} className="card-wrapper">
-              <div className="card">
-                <div className="card-num">Ex{v.id}</div>
-                <h3>{v.title}</h3>
-                <p>{v.desc}</p>
-              </div>
-            </Link>
-          ))}
+          <div className="intro-card">
+            <h3>🚀 프로젝트 목적</h3>
+            <p>
+              다양한 React Hook과 기능을 실습하며 나만의 컴포넌트 라이브러리를
+              구축합니다.
+            </p>
+          </div>
+
+          <div className="intro-card">
+            <h3>📂 연습 내용</h3>
+            <ul>
+              <li>LocalStorage를 활용한 데이터 관리 (Ex01)</li>
+              <li>컴포넌트 상태(State) 및 이벤트 핸들링</li>
+              <li>React Router를 이용한 페이지 전환</li>
+              <li>재사용 가능한 UI 컴포넌트 설계</li>
+            </ul>
+          </div>
+
+          <div className="intro-card highlight">
+            <h3>💡 사용 방법</h3>
+            <p>
+              상단의 드롭다운 메뉴를 클릭하여 각 연습 예제 페이지로 바로 이동할
+              수 있습니다.
+            </p>
+          </div>
         </section>
       </div>
     </div>

@@ -1,88 +1,69 @@
-.home-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px 20px;
-  font-family: "Inter", sans-serif;
-  text-align: center;
-  color: #d1d5db; /* 부드러운 밝은 회색 글자 */
-  min-height: 100vh;
-}
-
-.home-header {
-  padding: 70px 0;
-  /* 완전 검정 대신 깊이감 있는 진회색 그라디언트 */
-  background: linear-gradient(145deg, #2a2d3e 0%, #1f222f 100%);
-  border-radius: 24px;
-  margin-bottom: 50px;
-  border: 1px solid #374151;
-}
-
-.home-header h1 {
-  font-size: 3rem;
-  color: #f3f4f6;
-  letter-spacing: -1px;
-}
-
-.highlight {
-  color: #a5b4fc; /* 부드러운 파스텔톤 블루 */
-}
-
-.home-content {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
-}
-
-.card-wrapper {
-  text-decoration: none;
-  color: inherit;
-  display: block;
-}
-
-.card {
-  padding: 40px 30px;
-  /* 배경보다 약간 더 밝은 회색으로 카드 구분 */
-  background: #2d3142;
-  border: 1px solid #3f445e;
-  border-radius: 20px;
-  transition: all 0.3s ease-out;
-}
-
-.card-wrapper:hover .card {
-  transform: translateY(-8px);
-  background: #373c53; /* 호버 시 아주 살짝 밝아짐 */
-  border-color: #6366f1;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
-}
-
-.card-num {
-  font-size: 0.8rem;
-  font-weight: 700;
-  color: #a5b4fc;
-  background: rgba(165, 180, 252, 0.1);
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 8px;
-  margin: 0 auto 15px;
-}
-
-.card h3 {
-  color: #ffffff;
-  margin-bottom: 10px;
-}
-
-.card p {
-  color: #9ca3af; /* 설명글은 좀 더 차분하게 */
-  font-size: 0.95rem;
-}
+/* Home.css */
 
 .home-page-bg {
   background-color: #1a1c23;
   min-height: 100vh;
-  margin: -8px; /* 바깥 마진 당기기 */
-  padding: 8px; /* 안쪽 여백 확보 */
-  display: flow-root; /* 상단 흰 선 차단 */
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  padding-top: 60px;
+  /* 부모 body 마진 무시 */
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.home-container {
+  max-width: 800px;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.home-hero {
+  margin-bottom: 50px;
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  background: linear-gradient(to right, #a5b4fc, #6366f1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 20px;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+.home-content {
+  display: grid;
+  gap: 20px;
+}
+
+.intro-card {
+  background-color: #2d3142;
+  padding: 25px;
+  border-radius: 12px;
+  text-align: left;
+  border: 1px solid #3f445e;
+}
+
+.intro-card h3 {
+  color: #a5b4fc;
+  margin-bottom: 10px;
+}
+
+.intro-card ul {
+  padding-left: 20px;
+  color: #d1d5db;
+}
+
+.intro-card.highlight {
+  border: 1px solid #6366f1;
+  background-color: rgba(99, 102, 241, 0.1);
 }

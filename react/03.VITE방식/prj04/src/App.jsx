@@ -20,63 +20,67 @@ import Ex10 from "./pages/Ex10";
 
 function App() {
   const location = useLocation();
-  const navigate = useNavigate(); // 페이지 이동을 위한 함수
-  const showNavbar = location.pathname !== "/";
+  const navigate = useNavigate();
 
-  const handleSelectChange = (e) => {
-    if (e.target.value) {
-      navigate(e.target.value); // 선택한 value("/ex01" 등)로 이동
-    }
+  // 1. 사용할 예제 번호들을 배열로 만듭니다. (나중에 추가될 때 여기 숫자만 넣으세요)
+  const exNumbers = [
+    "01",
+    "02",
+    "03",
+    "04",
+    "05",
+    "06",
+    "07",
+    "08",
+    "09",
+    "10",
+  ];
+
+  // 2. 컴포넌트들을 객체로 묶어두면 매핑하기 편합니다.
+  const components = {
+    "01": <Ex01 />,
+    "02": <Ex02 />,
+    "03": <Ex03 />,
+    "04": <Ex04 />,
+    "05": <Ex05 />,
+    "06": <Ex06 />,
+    "07": <Ex07 />,
+    "08": <Ex08 />,
+    "09": <Ex09 />,
+    10: <Ex10 />,
   };
 
   return (
-    <>
-      <div className="app-container">
-        {showNavbar && (
-          <nav className="dark-nav">
-            <Link to="/" className="nav-logo">
-              ← Home
-            </Link>
+    <div className="app-container">
+      <nav className="dark-nav">
+        <Link to="/" className="nav-logo">
+          ← Home
+        </Link>
 
-            <div className="nav-dropdown-wrapper">
-              <select
-                className="nav-select"
-                onChange={handleSelectChange}
-                value={location.pathname} // 현재 페이지에 맞춰 드롭다운 값 동기화
-              >
-                <option value="" disabled>
-                  연습 예제 선택
-                </option>
-                <option value="/ex01">Ex01. LocalStorage</option>
-                <option value="/ex02">Ex02. 예제</option>
-                <option value="/ex03">Ex03. 예제</option>
-                <option value="/ex04">Ex04. 예제</option>
-                <option value="/ex05">Ex05. 예제</option>
-                <option value="/ex06">Ex06. 예제</option>
-                <option value="/ex07">Ex07. 예제</option>
-                <option value="/ex08">Ex08. 예제</option>
-                <option value="/ex09">Ex09. 예제</option>
-                <option value="/ex10">Ex10. 예제</option>
-              </select>
-            </div>
-          </nav>
-        )}
+        <div className="nav-dropdown-wrapper">
+          <select
+            className="nav-select"
+            onChange={(e) => navigate(e.target.value)}
+            value={location.pathname}
+          >
+            {/* 3. 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
+            {exNumbers.map((num) => (
+              <option key={num} value={`/ex${num}`}>
+                Ex{num} 연습
+              </option>
+            ))}
+          </select>
+        </div>
+      </nav>
 
-        <Routes>
-          <Route path="/" element={<Home />}></Route>
-          <Route path="/ex01" element={<Ex01 />}></Route>
-          <Route path="/ex02" element={<Ex02 />}></Route>
-          <Route path="/ex03" element={<Ex03 />}></Route>
-          <Route path="/ex04" element={<Ex04 />}></Route>
-          <Route path="/ex05" element={<Ex05 />}></Route>
-          <Route path="/ex06" element={<Ex06 />}></Route>
-          <Route path="/ex07" element={<Ex07 />}></Route>
-          <Route path="/ex08" element={<Ex08 />}></Route>
-          <Route path="/ex09" element={<Ex09 />}></Route>
-          <Route path="/ex10" element={<Ex10 />}></Route>
-        </Routes>
-      </div>
-    </>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        {/* 4. 배열을 돌면서 라우트(Route)를 자동 생성합니다 */}
+        {exNumbers.map((num) => (
+          <Route key={num} path={`/ex${num}`} element={components[num]} />
+        ))}
+      </Routes>
+    </div>
   );
 }
 

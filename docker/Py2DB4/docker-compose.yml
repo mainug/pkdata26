@@ -11,9 +11,10 @@ services:
     volumes:
       - D:\\data\\jupyter_data:/home/pkdata/data
     restart: always
+    user: root
     networks:
       - pknu_net
-    command: bash -c "service ssh start && python3 -m jupyterlab --ip=0.0.0.0 --allow-root --FileContentManager.delete_to_trash=False"
+    command: bash -c "service ssh start && su - pkdata -c 'python3 -m jupyterlab --ip=0.0.0.0 --FileContentManager.delete_to_trash=False'"
 
   mysql:
     image: mysql:8.0
