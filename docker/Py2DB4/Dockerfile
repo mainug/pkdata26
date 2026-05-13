@@ -19,4 +19,4 @@ USER pkdata
 WORKDIR /home/pkdata
 RUN pip install --upgrade pip && pip install jupyterlab
 ENV PATH="/home/pkdata/.local/bin:$PATH"
-CMD ["/bin/bash","-c","service ssh start && exe3c /bin/bash"]
+CMD ["/bin/bash","-c","service ssh start && exec /bin/bash"]

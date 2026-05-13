@@ -1,4 +1,10 @@
-import { Link, Routes, Route, useLocation } from "react-router-dom";
+import {
+  Link,
+  Routes,
+  Route,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
 import Ex01 from "./pages/Ex01";
@@ -14,7 +20,14 @@ import Ex10 from "./pages/Ex10";
 
 function App() {
   const location = useLocation();
+  const navigate = useNavigate(); // 페이지 이동을 위한 함수
   const showNavbar = location.pathname !== "/";
+
+  const handleSelectChange = (e) => {
+    if (e.target.value) {
+      navigate(e.target.value); // 선택한 value("/ex01" 등)로 이동
+    }
+  };
 
   return (
     <>
@@ -24,17 +37,27 @@ function App() {
             <Link to="/" className="nav-logo">
               ← Home
             </Link>
-            <div className="nav-links">
-              <Link to="/ex01">Ex01</Link>
-              <Link to="/ex02">Ex02</Link>
-              <Link to="/ex03">Ex03</Link>
-              <Link to="/ex04">Ex04</Link>
-              <Link to="/ex05">Ex05</Link>
-              <Link to="/ex06">Ex06</Link>
-              <Link to="/ex07">Ex07</Link>
-              <Link to="/ex08">Ex08</Link>
-              <Link to="/ex09">Ex09</Link>
-              <Link to="/ex10">Ex10</Link>
+
+            <div className="nav-dropdown-wrapper">
+              <select
+                className="nav-select"
+                onChange={handleSelectChange}
+                value={location.pathname} // 현재 페이지에 맞춰 드롭다운 값 동기화
+              >
+                <option value="" disabled>
+                  연습 예제 선택
+                </option>
+                <option value="/ex01">Ex01. LocalStorage</option>
+                <option value="/ex02">Ex02. 예제</option>
+                <option value="/ex03">Ex03. 예제</option>
+                <option value="/ex04">Ex04. 예제</option>
+                <option value="/ex05">Ex05. 예제</option>
+                <option value="/ex06">Ex06. 예제</option>
+                <option value="/ex07">Ex07. 예제</option>
+                <option value="/ex08">Ex08. 예제</option>
+                <option value="/ex09">Ex09. 예제</option>
+                <option value="/ex10">Ex10. 예제</option>
+              </select>
             </div>
           </nav>
         )}

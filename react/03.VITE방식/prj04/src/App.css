@@ -20,22 +20,22 @@
   letter-spacing: 1px;
 }
 
-/* 오른쪽 링크 모음 */
-.nav-links {
-  display: flex;
-  gap: 20px;
+.nav-dropdown-wrapper {
+  margin-right: 20px;
 }
 
-.nav-links a {
-  text-decoration: none;
-  color: #9ca3af;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
-}
-
-/* 마우스 올렸을 때 효과 */
-.nav-links a:hover {
+.nav-select {
+  background-color: #2d3142; /* 배경보다 살짝 밝은 회색 */
   color: #ffffff;
-  transform: translateY(-2px);
+  border: 1px solid #444;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.nav-select:hover {
+  border-color: #a5b4fc; /* 강조색 */
 }
