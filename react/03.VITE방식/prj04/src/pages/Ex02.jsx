@@ -1,7 +1,9 @@
 import { useState } from "react";
 
 function Ex02() {
-  const [theme, setTheme] = useState(() => localStorage.getItem("theme"));
+  const [theme, setTheme] = useState(
+    () => localStorage.getItem("theme") ?? "light",
+  );
 
   const toggle = () => {
     if (theme === "light") {
