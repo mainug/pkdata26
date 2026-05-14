@@ -1,7 +1,53 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import "./Home.css";
 
 const Home = () => {
+  // 리액트의 상태(State) 활용 예시
+  const [count, setCount] = useState(0);
+  const [name, setName] = useState("");
+  const [copied, setCopied] = useState(false);
+
+  const installCommand = "npm create vite@latest"; // 여기에 넣고 싶은 명령어를 적으세요
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText(installCommand);
+    setCopied(true);
+    // 2초 뒤에 다시 'Copy' 아이콘으로 복구
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  const [typedCode, setTypedCode] = useState("");
+  const fullCode = `
+  @SpringBootApplication
+  @RestController
+  public class DemoApplication {
+
+      @GetMapping("/helloworld")
+      public String hello() {
+          return "Hello World";
+      }
+  }`;
+
+  useEffect(() => {
+    let index = 0;
+    // 기존 문구를 비워주고 시작 (반복 실행 방지)
+    setTypedCode("");
+
+    const typingInterval = setInterval(() => {
+      // 1. 안전하게 전체 코드 길이 안에서만 동작하도록 보장
+      if (index < fullCode.length) {
+        setTypedCode((prev) => prev + fullCode[index]);
+        index++;
+      } else {
+        // 2. 글자를 다 쓰면 즉시 인터벌 종료 (undefined 방지)
+        clearInterval(typingInterval);
+      }
+    }, 50);
+
+    // 3. 클린업 함수: 컴포넌트가 다시 그려질 때 이전 인터벌을 확실히 제거
+    return () => clearInterval(typingInterval);
+  }, []); // 빈 배열을 두어 처음 한 번만 실행되도록 설정
+
   return (
     <div className="home-page-bg">
       <div className="home-container">
@@ -11,6 +57,62 @@ const Home = () => {
             리액트의 기초부터 심화 예제까지, <br />
             차근차근 기록하고 연습하는 개인 프로젝트 저장소입니다.
           </p>
+
+          {/* CLI 설치 섹션 */}
+          <div className="cli-container">
+            <div className="cli-terminal">
+              <span className="cli-prompt">$</span>
+              <code className="cli-command">{installCommand}</code>
+              <button className="cli-copy-btn" onClick={handleCopy}>
+                {copied ? "✅ Copied!" : "📋 Copy"}
+              </button>
+            </div>
+          </div>
+
+          <div className="code-window">
+            <div className="code-header">
+              <div className="dot red"></div>
+              <div className="dot yellow"></div>
+              <div className="dot green"></div>
+            </div>
+            <pre className="code-content">
+              <code>{typedCode}</code>
+              <span className="cursor">|</span>
+            </pre>
+          </div>
+
+          <p className="hero-subtitle">
+            <strong>React</strong>로 할 수 있는 간단한 시연입니다. <br />
+            데이터가 변하면 화면이 즉시 응답합니다.
+          </p>
+
+          {/* 리액트 임팩트 존 (Interactive Zone) */}
+          <div className="react-impact-zone">
+            <div className="interactive-item">
+              <p>실시간 상태 변경 (State)</p>
+              <div className="counter-box">
+                <button onClick={() => setCount(count - 1)}>-</button>
+                <span className="count-display">{count}</span>
+                <button onClick={() => setCount(count + 1)}>+</button>
+              </div>
+            </div>
+
+            <div className="interactive-item">
+              <p>실시간 데이터 바인딩</p>
+              <input
+                type="text"
+                placeholder="이름을 입력해보세요"
+                value={name}
+                onChange={(e) => setName(e.target.value)}
+                className="name-input"
+              />
+              <p className="name-display">
+                {name
+                  ? `반가워요, ${name}님!`
+                  : "당신의 이름을 기다리고 있어요."}
+              </p>
+            </div>
+          </div>
         </header>
 
         <section className="home-content">

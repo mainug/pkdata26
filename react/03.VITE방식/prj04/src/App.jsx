@@ -112,7 +112,7 @@ function App() {
             value={selected1}
           >
             <option value="" disabled>
-              01 ~ 10
+              Ex01 ~ 10
             </option>
             {/* 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
             {exNumbers1.map((num) => (
@@ -128,7 +128,7 @@ function App() {
             value={selected2}
           >
             <option value="" disabled>
-              11 ~ 20
+              Ex11 ~ 20
             </option>
             {/* 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
             {exNumbers2.map((num) => (
