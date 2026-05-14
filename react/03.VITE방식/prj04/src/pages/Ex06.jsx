@@ -26,7 +26,7 @@ function Ex06() {
                 type="radio"
                 name="one"
                 value={v}
-                checked={obj[v]}
+                checked={v === info}
                 onChange={handleInfo}
               />
               {v}
