@@ -25,7 +25,7 @@ const Home = () => {
           <div className="intro-card">
             <h3>📂 연습 내용</h3>
             <ul>
-              <li>LocalStorage를 활용한 데이터 관리 (Ex01)</li>
+              <li>LocalStorage를 활용한 데이터 관리</li>
               <li>컴포넌트 상태(State) 및 이벤트 핸들링</li>
               <li>React Router를 이용한 페이지 전환</li>
               <li>재사용 가능한 UI 컴포넌트 설계</li>

@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   Link,
   Routes,
@@ -22,8 +23,12 @@ function App() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  // 1. 사용할 예제 번호들을 배열로 만듭니다. (나중에 추가될 때 여기 숫자만 넣으세요)
-  const exNumbers = [
+  // 각 드롭다운의 선택 상태를 관리합니다.
+  const [selected1, setSelected1] = useState("");
+  const [selected2, setSelected2] = useState("");
+
+  // 사용할 예제 번호들을 배열로 만듭니다. (나중에 추가될 때 여기 숫자만 넣으세요)
+  const exNumbers1 = [
     "01",
     "02",
     "03",
@@ -35,8 +40,20 @@ function App() {
     "09",
     "10",
   ];
+  const exNumbers2 = [
+    "11",
+    "12",
+    "13",
+    "14",
+    "15",
+    "16",
+    "17",
+    "18",
+    "19",
+    "20",
+  ];
 
-  // 2. 컴포넌트들을 객체로 묶어두면 매핑하기 편합니다.
+  // 컴포넌트들을 객체로 묶어두면 매핑하기 편합니다.
   const components = {
     "01": <Ex01 />,
     "02": <Ex02 />,
@@ -50,6 +67,37 @@ function App() {
     10: <Ex10 />,
   };
 
+  useEffect(() => {
+    const pathNum = location.pathname.replace("/ex", "");
+
+    if (exNumbers1.includes(pathNum)) {
+      setSelected1(location.pathname);
+      setSelected2(""); // 첫 번째 그룹이면 두 번째 드롭다운 초기화
+    } else if (exNumbers2.includes(pathNum)) {
+      setSelected2(location.pathname);
+      setSelected1(""); // 두 번째 그룹이면 첫 번째 드롭다운 초기화
+    } else {
+      // 홈 화면('/')이거나 예외 경로일 때 모두 초기화
+      setSelected1("");
+      setSelected2("");
+    }
+  }, [location.pathname]);
+
+  // 드롭다운 변경 핸들러
+  const handleSelect1 = (e) => {
+    const target = e.target.value;
+    setSelected1(target);
+    setSelected2(""); // 다른 드롭다운 리셋
+    navigate(target);
+  };
+
+  const handleSelect2 = (e) => {
+    const target = e.target.value;
+    setSelected2(target);
+    setSelected1(""); // 다른 드롭다운 리셋
+    navigate(target);
+  };
+
   return (
     <div className="app-container">
       <nav className="dark-nav">
@@ -60,11 +108,30 @@ function App() {
         <div className="nav-dropdown-wrapper">
           <select
             className="nav-select"
-            onChange={(e) => navigate(e.target.value)}
-            value={location.pathname}
+            onChange={handleSelect1}
+            value={selected1}
           >
-            {/* 3. 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
-            {exNumbers.map((num) => (
+            <option value="" disabled>
+              01 ~ 10
+            </option>
+            {/* 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
+            {exNumbers1.map((num) => (
+              <option key={num} value={`/ex${num}`}>
+                Ex{num} 연습
+              </option>
+            ))}
+          </select>
+
+          <select
+            className="nav-select"
+            onChange={handleSelect2}
+            value={selected2}
+          >
+            <option value="" disabled>
+              11 ~ 20
+            </option>
+            {/* 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
+            {exNumbers2.map((num) => (
               <option key={num} value={`/ex${num}`}>
                 Ex{num} 연습
               </option>
@@ -75,8 +142,8 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* 4. 배열을 돌면서 라우트(Route)를 자동 생성합니다 */}
-        {exNumbers.map((num) => (
+        {/* 배열을 돌면서 라우트(Route)를 자동 생성합니다 */}
+        {[...exNumbers1, ...exNumbers2].map((num) => (
           <Route key={num} path={`/ex${num}`} element={components[num]} />
         ))}
       </Routes>
