@@ -222,9 +222,9 @@
 /* 커서 깜빡임 효과 */
 .cursor {
   display: inline-block;
-  width: 2px;
   background-color: #61dafb;
-  margin-left: 2px;
+  color: #61dafb;
+  margin-left: 4px;
   animation: blink 0.8s infinite;
 }
 

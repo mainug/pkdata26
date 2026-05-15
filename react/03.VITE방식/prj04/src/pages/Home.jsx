@@ -6,8 +6,7 @@ const Home = () => {
   const [count, setCount] = useState(0);
   const [name, setName] = useState("");
   const [copied, setCopied] = useState(false);
-
-  const installCommand = "npm create vite@latest"; // 여기에 넣고 싶은 명령어를 적으세요
+  const [typedPart, setTypedPart] = useState("");
 
   const handleCopy = () => {
     navigator.clipboard.writeText(installCommand);
@@ -16,37 +15,25 @@ const Home = () => {
     setTimeout(() => setCopied(false), 2000);
   };
 
-  const [typedCode, setTypedCode] = useState("");
-  const fullCode = `
-  @SpringBootApplication
-  @RestController
-  public class DemoApplication {
-
-      @GetMapping("/helloworld")
-      public String hello() {
-          return "Hello World";
-      }
-  }`;
+  const installCommand = "npm create vite@latest"; // 여기에 넣고 싶은 명령어를 적으세요
+  const targetText = "<LikeButton video={video} />"; // 타이핑 효과를 줄 부분
 
   useEffect(() => {
     let index = 0;
-    // 기존 문구를 비워주고 시작 (반복 실행 방지)
-    setTypedCode("");
+    setTypedPart(""); // 시작 전 초기화
 
     const typingInterval = setInterval(() => {
-      // 1. 안전하게 전체 코드 길이 안에서만 동작하도록 보장
-      if (index < fullCode.length) {
-        setTypedCode((prev) => prev + fullCode[index]);
+      if (index < targetText.length) {
+        // 함수형 업데이트를 사용하여 이전 상태를 안전하게 참조합니다.
+        setTypedPart((prev) => targetText.slice(0, index + 1));
         index++;
       } else {
-        // 2. 글자를 다 쓰면 즉시 인터벌 종료 (undefined 방지)
         clearInterval(typingInterval);
       }
-    }, 50);
+    }, 100); // 특정 부분만 치는 것이므로 속도를 조금 늦춰도 좋습니다.
 
-    // 3. 클린업 함수: 컴포넌트가 다시 그려질 때 이전 인터벌을 확실히 제거
-    return () => clearInterval(typingInterval);
-  }, []); // 빈 배열을 두어 처음 한 번만 실행되도록 설정
+    return () => clearInterval(typingInterval); // 클린업
+  }, []);
 
   return (
     <div className="home-page-bg">
@@ -76,8 +63,24 @@ const Home = () => {
               <div className="dot green"></div>
             </div>
             <pre className="code-content">
-              <code>{typedCode}</code>
-              <span className="cursor">|</span>
+              <code>
+                {`function Video({ video }) {
+  return (
+    <div>
+      <Thumbnail video={video} />
+      <a href={video.url}>
+        <h3>{video.title}</h3>
+        <p>{video.description}</p>
+      </a>
+      `}
+                {/* 이 부분만 타이핑 효과가 적용됩니다 */}
+                <span style={{ color: "#98c379" }}>{typedPart}</span>
+                <span className="cursor">|</span>
+                {`
+    </div>
+  );
+}`}
+              </code>
             </pre>
           </div>
 
