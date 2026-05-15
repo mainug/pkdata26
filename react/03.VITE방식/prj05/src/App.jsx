@@ -8,13 +8,9 @@ import {
 } from "react-router-dom";
 import "./App.css";
 import Home from "./pages/Home";
-import Ex01 from "./pages/Ex01";
-import Ex02 from "./pages/Ex02";
-import Ex03 from "./pages/Ex03";
-import Ex04 from "./pages/Ex04";
-import Ex05 from "./pages/Ex05";
-import Ex06 from "./pages/Ex06";
-import Ex07 from "./pages/Ex07";
+import Ex08 from "./pages/Ex08";
+import Ex09 from "./pages/Ex09";
+import Ex10 from "./pages/Ex10";
 
 function App() {
   const location = useLocation();
@@ -24,17 +20,13 @@ function App() {
   const [selected, setSelected] = useState("");
 
   // 사용할 예제 번호들을 배열로 만듭니다. (나중에 추가될 때 여기 숫자만 넣으세요)
-  const exNumbers = ["01", "02", "03", "04", "05", "06", "07"];
+  const exNumbers = ["08", "09", "10", "11", "12", "13", "14"];
 
   // 컴포넌트들을 객체로 묶어두면 매핑하기 편합니다.
   const components = {
-    "01": <Ex01 />,
-    "02": <Ex02 />,
-    "03": <Ex03 />,
-    "04": <Ex04 />,
-    "05": <Ex05 />,
-    "06": <Ex06 />,
-    "07": <Ex07 />,
+    "08": <Ex08 />,
+    "09": <Ex09 />,
+    10: <Ex10 />,
   };
 
   // ✅ 1. 경로가 바뀔 때마다 드롭다운 값을 동기화합니다.
@@ -67,7 +59,7 @@ function App() {
             value={selected}
           >
             <option value="" disabled>
-              Ex01 ~ 07
+              Ex08 ~
             </option>
             {/* 배열을 돌면서 드롭다운 옵션을 자동 생성합니다 */}
             {exNumbers.map((num) => (

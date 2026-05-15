@@ -1,0 +1,64 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+html {
+  scrollbar-gutter: stable; /* 스크롤바 공간을 항상 안정적으로 확보 */
+}
+
+/* 상단 네비게이션 전체 바 */
+.dark-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 40px;
+  margin-bottom: 40px;
+  height: 60px;
+  background-color: #2d3142; /* Home 배경색과 통일 */
+  border-radius: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* 로고/홈 링크 */
+.nav-logo {
+  text-decoration: none;
+  color: #a5b4fc;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nav-dropdown-wrapper {
+  margin-right: 20px;
+}
+
+.nav-select {
+  background-color: #2d3142; /* 배경보다 살짝 밝은 회색 */
+  color: #ffffff;
+  border: 1px solid #444;
+  margin-left: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.nav-select:hover {
+  border-color: #a5b4fc; /* 강조색 */
+}
+
+/* 예제에서 테스트를 위한 css */
+.light-mode {
+  background-color: lightgoldenrodyellow;
+}
+
+.dark-mode {
+  color: white;
+  background-color: darkblue;
+}
