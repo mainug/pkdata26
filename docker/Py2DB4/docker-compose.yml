@@ -80,7 +80,8 @@ services:
     ports:
       - "3300:3300"
     volumes:
-      - py3_data:/app
+      - D:\\data\\jupyter_data\\:/app
+      - D:\\pmw\\code\\pkdata26\\react\\03.VITE방식\\prj04\\dist:/app/dist
     restart: unless-stopped
     networks:
       - pknu_net
