@@ -11,6 +11,10 @@ import Home from "./pages/Home";
 import Ex08 from "./pages/Ex08";
 import Ex09 from "./pages/Ex09";
 import Ex10 from "./pages/Ex10";
+import Ex11 from "./pages/Ex11";
+import Ex12 from "./pages/Ex12";
+import Ex13 from "./pages/Ex13";
+import Ex14 from "./pages/Ex14";
 
 function App() {
   const location = useLocation();
@@ -27,6 +31,10 @@ function App() {
     "08": <Ex08 />,
     "09": <Ex09 />,
     10: <Ex10 />,
+    11: <Ex11 />,
+    12: <Ex12 />,
+    13: <Ex13 />,
+    14: <Ex14 />,
   };
 
   // ✅ 1. 경로가 바뀔 때마다 드롭다운 값을 동기화합니다.
