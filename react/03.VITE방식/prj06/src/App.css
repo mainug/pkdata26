@@ -1,0 +1,81 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Ex11 등 일반 예제는 하얀 바탕 유지 */
+  color: #000000;
+}
+
+#root {
+  width: 100%;
+  max-width: 100%; /* 창 크기에 맞게 리셋 */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+/* 상단 네비게이션 전체 바 */
+.dark-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  /* 지나치게 옆으로 퍼지지 않도록 최대 너비를 주고, 
+     margin: 20px auto를 통해 위아래 여백을 주면서 가운데로 정렬합니다. */
+  max-width: 1200px;
+  width: calc(100% - 40px); /* 좌우에 20px씩 자연스러운 여백 확보 */
+  margin: 20px auto;
+
+  padding: 0 40px;
+  height: 60px;
+  background-color: #2d3142;
+  border-radius: 16px;
+
+  /* 스크롤을 내려도 상단에 고정되도록 유지 */
+  position: sticky;
+  top: 20px;
+  z-index: 1000;
+  box-sizing: border-box;
+}
+
+/* 로고/홈 링크 */
+.nav-logo {
+  text-decoration: none;
+  color: #a5b4fc;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.nav-dropdown-wrapper {
+  margin-right: 0px;
+}
+
+.nav-select {
+  background-color: #2d3142; /* 배경보다 살짝 밝은 회색 */
+  color: #ffffff;
+  border: 1px solid #444;
+  margin-left: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.nav-select:hover {
+  border-color: #a5b4fc; /* 강조색 */
+}
+
+/* 예제에서 테스트를 위한 css */
+.light-mode {
+  background-color: lightgoldenrodyellow;
+}
+
+.dark-mode {
+  color: white;
+  background-color: darkblue;
+}
