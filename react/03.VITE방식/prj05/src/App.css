@@ -1,12 +1,20 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff; /* Ex11 등 일반 예제는 하얀 바탕 유지 */
+  color: #000000;
+}
+
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  max-width: 100%; /* 창 크기에 맞게 리셋 */
+  margin: 0;
+  padding: 0;
 }
 
 html {
-  scrollbar-gutter: stable; /* 스크롤바 공간을 항상 안정적으로 확보 */
+  scrollbar-gutter: stable;
 }
 
 /* 상단 네비게이션 전체 바 */
@@ -14,14 +22,23 @@ html {
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  /* 지나치게 옆으로 퍼지지 않도록 최대 너비를 주고, 
+     margin: 20px auto를 통해 위아래 여백을 주면서 가운데로 정렬합니다. */
+  max-width: 1200px;
+  width: calc(100% - 40px); /* 좌우에 20px씩 자연스러운 여백 확보 */
+  margin: 20px auto;
+
   padding: 0 40px;
-  margin-bottom: 40px;
   height: 60px;
-  background-color: #2d3142; /* Home 배경색과 통일 */
+  background-color: #2d3142;
   border-radius: 16px;
+
+  /* 스크롤을 내려도 상단에 고정되도록 유지 */
   position: sticky;
-  top: 0;
+  top: 20px;
   z-index: 1000;
+  box-sizing: border-box;
 }
 
 /* 로고/홈 링크 */
@@ -33,7 +50,7 @@ html {
 }
 
 .nav-dropdown-wrapper {
-  margin-right: 20px;
+  margin-right: 0px;
 }
 
 .nav-select {

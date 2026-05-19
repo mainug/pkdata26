@@ -8,17 +8,21 @@
   justify-content: center;
   align-items: center;
   color: #ffffff;
-  padding-top: 60px;
-  /* 부모 body 마진 무시 */
+
+  /* 🚨 패딩을 지우고, 이 3줄을 다시 넣어주면 nav 바 뒷배경까지 다크색으로 꽉 찹니다! */
   position: absolute;
   top: 0;
   left: 0;
+  z-index: 1; /* 내비게이션 바(z-index: 1000)보다 아래에 깔리도록 설정 */
 }
 
 .home-container {
   max-width: 800px;
   padding: 40px 20px;
   text-align: center;
+
+  /* 💡 absolute 레이어 안에서 컨텐츠가 무너지지 않도록 상단 마진을 살짝 줍니다. */
+  margin-top: 80px;
 }
 
 .home-hero {

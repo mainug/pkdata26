@@ -1,0 +1,158 @@
+/* Ex10.module.css */
+
+/* 🚨 기존의 body { background-color: #1a1c23; } 레이아웃은 전역을 오염시키므로 삭제했습니다. */
+
+/* 대신 Ex10 컴포넌트의 전체 배경과 글자색을 여기서 통제합니다. */
+.ex10Container {
+  background-color: #1a1c23;
+  color: #ffffff;
+  min-height: 100vh;
+  padding: 40px 20px;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+/* 제목 스타일링 */
+.todoTitle {
+  color: #a5b4fc;
+  margin-bottom: 30px;
+  font-size: 1.8rem;
+}
+
+/* 입력 영역 섹션 */
+.todoLabel {
+  font-weight: bold;
+  color: #eee;
+  margin-right: 10px;
+}
+
+.todoInput {
+  padding: 10px 15px;
+  border: 2px solid #444;
+  border-radius: 8px;
+  background-color: #1e1e1e;
+  color: white;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+  width: 250px;
+}
+
+.todoInput:focus {
+  border-color: #a5b4fc;
+}
+
+/* 추가 버튼 */
+.addBtn {
+  padding: 10px 20px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #6366f1;
+  color: white;
+}
+
+.addBtn:hover {
+  background-color: #4f46e5;
+  transform: translateY(-2px);
+}
+
+/* 모두삭제 버튼 */
+.delBtn {
+  padding: 10px 20px;
+  margin-left: 8px;
+  border: none;
+  border-radius: 8px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s;
+  background-color: #ef4444;
+  color: white;
+}
+
+.delBtn:hover:not(:disabled) {
+  background-color: #dc2626;
+  transform: translateY(-2px);
+}
+
+.delBtn:disabled {
+  background-color: #555;
+  color: #888;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.todoHr {
+  margin: 30px 0;
+  border: 0;
+  border-top: 1px solid #444;
+}
+
+/* 실시간 입력 미리보기 */
+.previewText {
+  font-style: italic;
+  color: #888;
+  min-height: 24px;
+}
+
+/* 리스트 아이템 스타일 */
+.todoListContainer {
+  max-width: 450px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.todoItem {
+  background-color: #2d3142;
+  padding: 12px 20px;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s;
+}
+
+.todoItem:hover {
+  transform: scale(1.02);
+}
+
+.todoCheckbox {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.todoIndex {
+  background: #a5b4fc;
+  color: #1e1e1e;
+  width: 24px;
+  height: 24px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-right: 15px;
+}
+
+.todoText {
+  font-size: 1rem;
+}
+
+/* 완료된 아이템 효과 */
+.todoItem.completed .todoText {
+  color: #888;
+}
+
+.todoItem.completed {
+  opacity: 0.6;
+}
+
+.todoItem :global(del) {
+  color: #ff6b6b;
+}
