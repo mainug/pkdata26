@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- 학생 실습용: MapReduce 설정 파일 -->
+<configuration>
+    <!-- MapReduce 작업을 실행할 프레임워크로 YARN을 지정합니다. -->
+    <property>
+        <name>mapreduce.framework.name</name>
+        <value>yarn</value>
+        <description>MapReduce 실행 프레임워크 (yarn)</description>
+    </property>
+</configuration>

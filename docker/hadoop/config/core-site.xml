@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
+<!-- 학생 실습용: Hadoop 핵심 설정 파일 -->
+<configuration>
+    <!-- HDFS의 기본 주소(NameNode)를 설정합니다. -->
+    <property>
+        <name>fs.defaultFS</name>
+        <value>hdfs://namenode:9000</value>
+        <description>HDFS의 NameNode 주소 (포트 9000 사용)</description>
+    </property>
+</configuration>

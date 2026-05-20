@@ -1,0 +1,69 @@
+version: '3.8'
+
+# 학생 실습용: Hadoop 1 NameNode + 3 DataNode 클러스터 구성
+
+services:
+  # --------------------------------------------------------
+  # 1. NameNode (HDFS의 마스터, YARN의 ResourceManager)
+  # --------------------------------------------------------
+  namenode:
+    build: .                 # 현재 디렉토리의 Dockerfile을 사용해 이미지 빌드
+    container_name: namenode # 컨테이너 이름
+    hostname: namenode       # 내부 네트워크에서 사용할 호스트 이름
+    ports:
+      - "9870:9870"          # HDFS Web UI (학생들이 브라우저로 접속할 포트)
+      - "8088:8088"          # YARN Web UI (학생들이 브라우저로 접속할 포트)
+      - "9000:9000"          # HDFS 내부 통신 포트
+    command: ["/scripts/start-namenode.sh"] # 컨테이너 시작 시 실행할 스크립트
+    networks:
+      - hadoop-net
+
+  # --------------------------------------------------------
+  # 2. DataNode 1 (HDFS의 워커, YARN의 NodeManager)
+  # --------------------------------------------------------
+  datanode1:
+    build: .
+    container_name: datanode1
+    hostname: datanode1
+    ports:
+      - "9864:9864"          # DataNode 1 Web UI
+    command: ["/scripts/start-datanode.sh"]
+    depends_on:
+      - namenode             # NameNode가 먼저 실행된 후 실행되도록 설정
+    networks:
+      - hadoop-net
+
+  # --------------------------------------------------------
+  # 3. DataNode 2
+  # --------------------------------------------------------
+  datanode2:
+    build: .
+    container_name: datanode2
+    hostname: datanode2
+    ports:
+      - "9865:9864"          # 호스트의 9865 포트를 컨테이너의 9864로 연결
+    command: ["/scripts/start-datanode.sh"]
+    depends_on:
+      - namenode
+    networks:
+      - hadoop-net
+
+  # --------------------------------------------------------
+  # 4. DataNode 3
+  # --------------------------------------------------------
+  datanode3:
+    build: .
+    container_name: datanode3
+    hostname: datanode3
+    ports:
+      - "9866:9864"          # 호스트의 9866 포트를 컨테이너의 9864로 연결
+    command: ["/scripts/start-datanode.sh"]
+    depends_on:
+      - namenode
+    networks:
+      - hadoop-net
+
+# 컨테이너들이 서로 통신할 수 있도록 사용자 정의 네트워크 생성
+networks:
+  hadoop-net:
+    driver: bridge
