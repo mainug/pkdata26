@@ -12,6 +12,7 @@ else
     echo "NameNode가 이미 포맷되어 있습니다. 포맷을 건너뜁니다."
 fi
 
+
 # 2. NameNode 데몬 시작 (HDFS 메타데이터 관리)
 echo "NameNode 데몬을 시작합니다..."
 $HADOOP_HOME/bin/hdfs --daemon start namenode

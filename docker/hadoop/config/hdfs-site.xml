@@ -1,24 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
-<!-- 학생 실습용: HDFS 설정 파일 -->
 <configuration>
-    <!-- 데이터 블록의 복제 수를 설정합니다. 
-         DataNode가 3개이므로 3으로 설정합니다. -->
     <property>
         <name>dfs.replication</name>
         <value>3</value>
-        <description>데이터 복제본 수 (기본값 3)</description>
     </property>
-    
-    <!-- NameNode의 메타데이터 저장 경로입니다. -->
     <property>
-        <name>dfs.namenode.name.dir</name>
-        <value>file:///hadoop/dfs/name</value>
+        <name>dfs.permissions.enabled</name>
+        <value>false</value>
     </property>
-    
-    <!-- DataNode의 실제 데이터(블록) 저장 경로입니다. -->
     <property>
-        <name>dfs.datanode.data.dir</name>
-        <value>file:///hadoop/dfs/data</value>
+        <name>dfs.webhdfs.rest.csrf.enabled</name>
+        <value>false</value>
+    </property>
+    <property>
+        <name>dfs.client.use.datanode.hostname</name>
+        <value>true</value>
     </property>
 </configuration>
