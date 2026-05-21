@@ -14,6 +14,7 @@ import Ex15 from "./pages/Ex15";
 import Ex16 from "./pages/Ex16";
 import Ex17 from "./pages/Ex17";
 import Ex18 from "./pages/Ex18";
+import Ex19 from "./pages/Ex19";
 
 function App() {
   const location = useLocation();
@@ -23,7 +24,7 @@ function App() {
   const [selected, setSelected] = useState("");
 
   // 사용할 예제 번호들을 배열로 만듭니다. (나중에 추가될 때 여기 숫자만 넣으세요)
-  const exNumbers = ["13", "14", "15", "16", "17", "18"];
+  const exNumbers = ["13", "14", "15", "16", "17", "18", "19"];
 
   // 컴포넌트들을 객체로 묶어두면 매핑하기 편합니다.
   const components = {
@@ -33,6 +34,7 @@ function App() {
     16: <Ex16 />,
     17: <Ex17 />,
     18: <Ex18 />,
+    19: <Ex19 />,
   };
 
   // ✅ 1. 경로가 바뀔 때마다 드롭다운 값을 동기화합니다.
